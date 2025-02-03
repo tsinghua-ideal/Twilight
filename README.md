@@ -27,3 +27,7 @@ Twilight accelerates SOTA methods like [Quest](https://github.com/mit-han-lab/Qu
 
 
 ![eva1](figures/kernel.png)
+
+## Acknowledgement
+
+We learned the design and reused code from the following projects: [FlashInfer](https://github.com/flashinfer-ai/flashinfer), [Quest](https://github.com/mit-han-lab/Quest), [Atom](https://github.com/efeslab/Atom).
