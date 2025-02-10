@@ -1,6 +1,6 @@
 # Twilight: Adaptive Attention Sparsity with Hierarchical Top-$p$ Pruning
 
-[[Paper (Stay Tuned)]()]
+[[Paper](https://arxiv.org/abs/2502.02770)] | [[Code (Stay Tuned)]()]
 
 ![teaser](figures/teaser.png)
 
