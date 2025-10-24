@@ -1,0 +1,20 @@
+{
+    "compressor": {
+        "type": "none"
+    },
+    "selector": {
+        "type": "quest",
+        "token_budget": 8192,
+        "chunk_size": 16
+    },
+    "weight_estimator": {
+        "type": "min_max_quant",
+        "quant_bit": 4
+    },
+    "weight_pruner": {
+        "type": "top_p",
+        "threshold": 0.85
+    },
+    "skip_first_two_layers": true,
+    "use_estimated_weights_in_attn": false
+}

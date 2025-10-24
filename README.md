@@ -16,7 +16,7 @@
 <div align="center">
 <sup>1</sup>Tsinghua University
 <sup>2</sup>MIT
-<sup>3</sup>UC Berkerly
+<sup>3</sup>UC Berkely
 <sup>4</sup>Shanghai Qizhi Institute
 </div>
 
@@ -42,6 +42,15 @@ By first selecting tokens using a conservative budget using the basic algorithms
 
 ![arch](figures/arch.png)
 
+## Installation
+
+```bash
+conda create -n twi python=3.10
+conda activate twi
+pip install -r requirements.txt
+pip install -e .
+```
+
 ## Accuracy & Efficiency
 
 Twilight accelerates SOTA methods like [Quest](https://github.com/mit-han-lab/Quest), [Double Sparse](https://github.com/andy-yang-1/DoubleSparse/tree/main) with nearly zero accuracy loss.
@@ -52,7 +61,6 @@ Twilight accelerates SOTA methods like [Quest](https://github.com/mit-han-lab/Qu
 | DS (8192 budget)     | 36.62 | **38.71(+5.7\%)**| 126 |
 
 \* Results on Longchat-7B-v1.5-32k
-
 
 ![eva1](figures/kernels.png)
 
