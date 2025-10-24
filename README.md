@@ -8,6 +8,7 @@
 <b><a href="https://andy-yang-1.github.io/">Shuo Yang</a></b><sup>3</sup>,
 <b><a href="https://github.com/WANGHanshuo1220">Hanshuo Wang</a></b><sup>4</sup>,
 <b><a href="https://github.com/tang-t21">Tian Tang</a></b><sup>1</sup>,
+<b><a href="https://criust.github.io/">Boyu Tian</a></b><sup>1</sup>,
 <br>
 <b><a href="https://people.eecs.berkeley.edu/~istoica/">Ion Stocia</a></b><sup>3</sup>,
 <b><a href="https://hanlab.mit.edu/songhan/">Song Han</a></b><sup>2</sup>,
