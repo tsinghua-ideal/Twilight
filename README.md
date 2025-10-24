@@ -1,16 +1,20 @@
 # Twilight: Adaptive Attention Sparsity with Hierarchical Top-$p$ Pruning
 
-[[Paper](https://arxiv.org/abs/2502.02770)] | [[Code (Stay Tuned)]()]
+[[Paper](https://arxiv.org/abs/2502.02770)] | [[Code](https://github.com/tsinghua-ideal/Twilight)] | [[Flash-TopK-Attention (Stay Tuned)]()]
 
 ![teaser](figures/teaser.png)
 
-Twilight is a composable optimizer to accelerate **any existing sparse decoding methods** through hierarchical top-$p$ pruning, making them **efficient** and **budget-adaptive**.
+Twilight is a composable optimizer to accelerate **any existing top-$k$ sparse decoding methods** through hierarchical top-$p$ pruning, making them efficient and **budget-adaptive**.
 
-## Abstract
+## Key Design: Optimizing Current Algorithm via Hierarchical Top-$p$ Pruning
 
-Leveraging attention sparsity to accelerate long-context large language models (LLMs) has been a hot research topic. However, current algorithms such as sparse attention or key-value (KV) cache compression tend to use a fixed budget, which presents a significant challenge during deployment because it fails to account for the dynamic nature of real-world scenarios, where the optimal balance between accuracy and efficiency can vary greatly. In this paper, we find that borrowing top-$p$ sampling (nucleus sampling) to sparse attention can surprisingly achieve adaptive budgeting. Based on this, we propose Twilight, a framework to bring adaptive sparsity to any existing sparse attention algorithm without sacrificing their accuracy. Empirical results show that Twilight can adaptively prune at most **98\%** of redundant tokens, leading to $15.4\times$ acceleration in self-attention operations and $3.9\times$ acceleration in end-to-end per token latency in long context LLM decoding.
+Traditional top-$k$ based sparse attention can be unified into a **Select-then-SpAttn** architecture, where:
+- **Selector**: usually consists of a fast $q \cdot k$ approximation and a `topk` operator to filter out the indices.
+- **Sparse Attention**: a.k.a Paged Attention, which takes the selected indices as inputs and then calculates the attention **only on** these tokens.
 
-## Optimizing Current Algorithm via Hierarchical Top-$p$ Pruning
+However, they usually use a fixed budget $k$ of how many tokens to use in their computations. Twilight hacks into the unified architecture by adding a **Pruner** component right after the Selector called **Select-then-Prune** architecture in our paper. 
+
+By first selecting tokens using a conservative budget using the basic algorithms' Selector and then purning them using top-$p$ pruner, Twilight optimize them with adaptive budget decision capabilities without sacrificing accuracy.
 
 ![arch](figures/arch.png)
 
@@ -26,8 +30,20 @@ Twilight accelerates SOTA methods like [Quest](https://github.com/mit-han-lab/Qu
 \* Results on Longchat-7B-v1.5-32k
 
 
-![eva1](figures/kernel.png)
+![eva1](figures/kernels.png)
+
+## Citation
+
+If you find Twilight useful or relevant to your project and research, please kindly cite our paper:
+```bibtex
+@article{lin2025twilight,
+  title={Twilight: Adaptive Attention Sparsity with Hierarchical Top-$ p $ Pruning},
+  author={Lin, Chaofan and Tang, Jiaming and Yang, Shuo and Wang, Hanshuo and Tang, Tian and Tian, Boyu and Stoica, Ion and Han, Song and Gao, Mingyu},
+  journal={arXiv preprint arXiv:2502.02770},
+  year={2025}
+}
+```
 
 ## Acknowledgement
 
-We learned the design and reused code from the following projects: [FlashInfer](https://github.com/flashinfer-ai/flashinfer), [Quest](https://github.com/mit-han-lab/Quest), [Atom](https://github.com/efeslab/Atom).
+We learned the designs/optimizations and reused code from the following projects: [FlashInfer](https://github.com/flashinfer-ai/flashinfer), [Quest](https://github.com/mit-han-lab/Quest), [Atom](https://github.com/efeslab/Atom), [FasterTransformer](https://github.com/NVIDIA/FasterTransformer), [QServe](https://github.com/mit-han-lab/omniserve). We also thank reserach projects like [DuoAttention](https://github.com/mit-han-lab/duo-attention), [PyramidKV](https://github.com/Zefan-Cai/KVCache-Factory), [Ada-KV](https://github.com/FFY0/AdaKV) and [MagicPIG](https://github.com/Infini-AI-Lab/MagicPiG) for bringing the ideas of dynamic budgets across different levels and breaking the limitations of top-$k$ attention.
