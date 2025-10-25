@@ -4,7 +4,7 @@
 import torch
 from torch import nn
 
-from twilight.ops import top_p_fp32_return_mask
+from twilight.kernel import top_p_fp32_return_mask
 
 
 def top_p_unnormalized(attn_weights: torch.Tensor, threshold: float) -> torch.Tensor:

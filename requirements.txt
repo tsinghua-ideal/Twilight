@@ -1,3 +1,5 @@
 torch==2.5.0
 flashinfer-python==0.2.0.post1
 transformers==4.45.2
+accelerate==1.0.1
+flash-attn==2.6.3

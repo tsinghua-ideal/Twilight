@@ -51,7 +51,9 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-## Accuracy & Efficiency
+Note: install `flash-attn` may take several minutes.
+
+## Evaluation
 
 Twilight accelerates SOTA methods like [Quest](https://github.com/mit-han-lab/Quest), [Double Sparse](https://github.com/andy-yang-1/DoubleSparse/tree/main) with nearly zero accuracy loss.
 | Methods | Longbench (w/o Twilight) | Longbench (w/ Twilight) | Avg. Budget After Pruned |
@@ -60,9 +62,28 @@ Twilight accelerates SOTA methods like [Quest](https://github.com/mit-han-lab/Qu
 | Quest (8192 budget)  | 37.10 | **38.04(+2.5\%)** | 131 |
 | DS (8192 budget)     | 36.62 | **38.71(+5.7\%)**| 126 |
 
+![eva1](figures/kernels.png)
+
 \* Results on Longchat-7B-v1.5-32k
 
-![eva1](figures/kernels.png)
+### Accuracy Evaluation
+
+We implements a Python version of Twilight and some other existing top-$k$ methods for accuracy-only evaluation. To bench different methods, we use a unified configuration format. 
+
+We recommend run the following commands under the `benchmark/` directory and the results will be dumped as `result_<benchmark_name>/<model_name>/xxx`.
+
+#### Passkey
+
+```bash
+# Modify MODEL and MODEL_PATH in scripts/run_passkey.sh
+CUDA_VISIBLE_DEVICES=0 bash scripts/run_passkey.sh
+```
+
+
+
+### Efficiency Evaluation
+
+We have organized an implementation of [Flash-TopK-Attention]() using languages such as [FlashInfer(CUDA)](https://github.com/flashinfer-ai/flashinfer), [Triton](https://github.com/triton-lang/triton), and [TileLang](https://github.com/tile-ai/tilelang/) for the existing top-$k$ algorithm.
 
 ## Citation
 

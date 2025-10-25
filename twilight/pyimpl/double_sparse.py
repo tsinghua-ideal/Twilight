@@ -14,7 +14,7 @@ from transformers.models.mistral.modeling_mistral import MistralAttention
 
 from .quantize import min_max_per_token_quant_kv
 
-from twilight.ops import get_label_tensor
+from twilight.kernel import get_label_tensor
 
 from .top_k import top_k
 
