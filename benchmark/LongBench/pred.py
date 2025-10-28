@@ -111,9 +111,9 @@ def get_pred(
     preds = []
 
     # HACK: sample 10 examples for debugging
-    sampled = np.random.choice(data, 5)
+    # sampled = np.random.choice(data, 10)
 
-    for json_obj in tqdm(sampled):
+    for json_obj in tqdm(data):
         torch.cuda.empty_cache()
         prompt = prompt_format.format(**json_obj)
         # truncate to fit max_length (we suggest truncate in the middle, since the left and right side may contain crucial instructions)
@@ -254,8 +254,6 @@ def get_pred(
                 # "B1": avg_budget,
             }
         )
-
-        break
     return preds
 
 
@@ -323,17 +321,22 @@ if __name__ == "__main__":
             os.makedirs(dir)
 
     local_data_set = args.dataset_path
+    has_local_data_set = os.path.exists(local_data_set)
     for dataset in datasets:
         if args.e:
-            # data = load_dataset("THUDM/LongBench", f"{dataset}_e", split="test")
-            data = load_dataset(
-                "json", data_files=f"{local_data_set}/{dataset}_e.jsonl", split="train"
-            )
+            if not has_local_data_set:
+                data = load_dataset("THUDM/LongBench", f"{dataset}_e", split="test")
+            else:
+                data = load_dataset(
+                    "json", data_files=f"{local_data_set}/{dataset}_e.jsonl", split="train"
+                )
         else:
-            # data = load_dataset("THUDM/LongBench", dataset, split="test")
-            data = load_dataset(
-                "json", data_files=f"{local_data_set}/{dataset}.jsonl", split="train"
-            )
+            if not has_local_data_set:
+                data = load_dataset("THUDM/LongBench", dataset, split="test")
+            else:
+                data = load_dataset(
+                    "json", data_files=f"{local_data_set}/{dataset}.jsonl", split="train"
+                )
 
         # Create output.jsonl file name
         dataset_prefix = dataset.split("-")[0]
@@ -356,10 +359,12 @@ if __name__ == "__main__":
 
         if "config_path" in algo_config["selector"]:
             algo_config["selector"].pop("config_path")
-        out_fn = f"{dataset_prefix}-{str(algo_config)[:235]}-{args.t}"
+        out_fn = f"{dataset_prefix}-{str(algo_config)}-{args.t}"
         # avoid too long file name
         out_fn = out_fn.replace(" ", "")
         out_fn = out_fn.replace("'", "")
+        if len(out_fn) > 245:
+            out_fn = out_fn[:245] + "..."
         out_path = f"{dir}/{out_fn}.jsonl"
 
         with open(out_path, "w", encoding="utf-8") as f:

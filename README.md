@@ -75,11 +75,16 @@ We recommend run the following commands under the `benchmark/` directory and the
 #### Passkey
 
 ```bash
-# Modify MODEL and MODEL_PATH in scripts/run_passkey.sh
+# Modify MODEL, MODEL_PATH and algo_config_path in scripts/run_passkey.sh
 CUDA_VISIBLE_DEVICES=0 bash scripts/run_passkey.sh
 ```
 
+#### Longbench
 
+```bash
+# Modify MODEL and MODEL_PATH in scripts/run_passkey.sh
+CUDA_VISIBLE_DEVICES=0 bash scripts/run_longbench.sh configs/config_quest_1024.json
+```
 
 ### Efficiency Evaluation
 
