@@ -3,21 +3,18 @@
 <h1>Twilight: Adaptive Attention Sparsity with Hierarchical Top-$p$ Pruning</h1>
 </div>
 <div align="center">
-<b><a href="https://chaofanlin.com/">Chaofan Lin</a></b><sup>1</sup>,
-<b><a href="https://jiamingtang.me/">Jiaming Tang</a></b><sup>2</sup>,
-<b><a href="https://andy-yang-1.github.io/">Shuo Yang</a></b><sup>3</sup>,
-<b><a href="https://github.com/WANGHanshuo1220">Hanshuo Wang</a></b><sup>4</sup>,
-<br>
-<b><a href="https://github.com/tang-t21">Tian Tang</a></b><sup>1</sup>,
-<b><a href="https://criust.github.io/">Boyu Tian</a></b><sup>1</sup>,
-<b><a href="https://people.eecs.berkeley.edu/~istoica/">Ion Stoica</a></b><sup>3</sup>,
-<b><a href="https://people.iiis.tsinghua.edu.cn/~gaomy/index.html">Mingyu Gao</a></b><sup>14</sup>
+<b><a href="https://chaofanlin.com/">Chaofan Lin</a></b>,
+<b><a href="https://jiamingtang.me/">Jiaming Tang</a></b>,
+<b><a href="https://andy-yang-1.github.io/">Shuo Yang</a></b>,
+<b><a href="https://github.com/WANGHanshuo1220">Hanshuo Wang</a></b>,
+<b><a href="https://github.com/tang-t21">Tian Tang</a></b>,
+<b><a href="https://criust.github.io/">Boyu Tian</a></b>,<br>
+<b><a href="https://people.eecs.berkeley.edu/~istoica/">Ion Stoica</a></b>,
+<b><a href="https://hanlab.mit.edu/songhan/">Song Han</a></b>,
+<b><a href="https://people.iiis.tsinghua.edu.cn/~gaomy/index.html">Mingyu Gao</a></b>
 </div>
 <div align="center">
-<sup>1</sup>Tsinghua University
-<sup>2</sup>MIT
-<sup>3</sup>UC Berkely
-<sup>4</sup>Shanghai Qizhi Institute
+Tsinghua University, MIT, UC Berkeley
 </div>
 
 <div align="center">
@@ -96,7 +93,7 @@ If you find Twilight useful or relevant to your project and research, please kin
 ```bibtex
 @article{lin2025twilight,
   title={Twilight: Adaptive Attention Sparsity with Hierarchical Top-$ p $ Pruning},
-  author={Lin, Chaofan and Tang, Jiaming and Yang, Shuo and Wang, Hanshuo and Tang, Tian and Tian, Boyu and Stoica, Ion and Gao, Mingyu},
+  author={Lin, Chaofan and Tang, Jiaming and Yang, Shuo and Wang, Hanshuo and Tang, Tian and Tian, Boyu and Stoica, Ion and Han, Song and Gao, Mingyu},
   journal={arXiv preprint arXiv:2502.02770},
   year={2025}
 }
