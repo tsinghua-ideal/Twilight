@@ -439,7 +439,7 @@ log
 *.pth
 data
 *.so
-*.pdf
+# *.pdf
 
 # Experiment results
 results*
