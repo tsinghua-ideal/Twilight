@@ -21,6 +21,7 @@ Tsinghua University, MIT, UC Berkeley
 <a href="https://arxiv.org/abs/2502.02770">[Paper]</a> | 
 <a href="https://github.com/tsinghua-ideal/Twilight">[Code]</a> | 
 <a href="assets/Twilight-NIPS25.pdf">[Slide]</a> | 
+<a href="assets/Twilight-Poster.pdf">[Poster]</a> | 
 <a href="">[Flash-TopK-Attention (Stay Tuned)]</a><br><br>
 </div>
 
