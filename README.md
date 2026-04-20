@@ -83,8 +83,16 @@ CUDA_VISIBLE_DEVICES=0 bash scripts/run_passkey.sh
 #### Longbench
 
 ```bash
-# Modify MODEL and MODEL_PATH in scripts/run_passkey.sh
+# Modify MODEL and MODEL_PATH in scripts/run_longbench.sh
 CUDA_VISIBLE_DEVICES=0 bash scripts/run_longbench.sh configs/config_quest_1024.json
+```
+
+#### RULER
+
+```bash
+# Modify MODEL and MODEL_PATH in RULER/scripts/run.sh
+cd RULER/scripts
+CUDA_VISIBLE_DEVICES=0 bash run.sh configs/config_quest_1024.json quest_1024 synthetic
 ```
 
 ### Efficiency Evaluation
