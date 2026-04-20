@@ -87,7 +87,16 @@ CUDA_VISIBLE_DEVICES=0 bash scripts/run_longbench.sh configs/config_quest_1024.j
 
 ### Efficiency Evaluation
 
-We have organized an implementation of [Flash-TopK-Attention]() using languages such as [FlashInfer(CUDA)](https://github.com/flashinfer-ai/flashinfer), [Triton](https://github.com/triton-lang/triton), and [TileLang](https://github.com/tile-ai/tilelang/) for the existing top-$k$ algorithm.
+We have organized an implementation of [Flash-TopK-Attention](https://github.com/tsinghua-ideal/flash-topk-attention/) using languages such as [FlashInfer(CUDA)](https://github.com/flashinfer-ai/flashinfer), [Triton](https://github.com/triton-lang/triton), and [TileLang](https://github.com/tile-ai/tilelang/) for the existing top-$k$ algorithm. Please follow the document to install it.
+
+#### Bench quantized GEMV
+
+```bash
+cd benchmark/efficiency
+python3 bench_gemv.py
+```
+
+
 
 ## Citation
 
