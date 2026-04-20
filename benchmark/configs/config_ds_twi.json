@@ -1,0 +1,23 @@
+{
+    "compressor": {
+        "type": "none"
+    },
+    "selector": {
+        "type": "ds",
+        "quant_bit": 2,
+        "r": 64,
+        "config_path": "/data/chaofan/DoubleSparse/config/lmsys/longchat-7b-v1.5-32k.json",
+        "token_budget": 8192,
+        "selected_channel": "q"
+    },
+    "weight_estimator": {
+        "type": "min_max_quant",
+        "quant_bit": 4
+    },
+    "weight_pruner": {
+        "type": "top_p",
+        "threshold": 0.85
+    },
+    "skip_first_two_layers": true,
+    "use_estimated_weights_in_attn": false
+}

@@ -71,6 +71,8 @@ We implements a Python version of Twilight and some other existing top-$k$ metho
 
 We recommend run the following commands under the `benchmark/` directory and the results will be dumped as `result_<benchmark_name>/<model_name>/xxx`.
 
+> The configuration files are put under `benchmark/configs/`. Note that for [Double Sparse](https://github.com/andy-yang-1/DoubleSparse/tree/main), you should replace the config path with your own path. Please refer to DS's repo for details.
+
 #### Passkey
 
 ```bash
