@@ -1,0 +1,3 @@
+[submodule "flash-topk-attention"]
+	path = flash-topk-attention
+	url = https://github.com/tsinghua-ideal/flash-topk-attention.git
