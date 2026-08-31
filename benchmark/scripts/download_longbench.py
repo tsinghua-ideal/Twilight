@@ -4,5 +4,8 @@ datasets = ["narrativeqa", "qasper", "multifieldqa_en", "multifieldqa_zh", "hotp
             "dureader", "gov_report", "qmsum", "multi_news", "vcsum", "trec", "triviaqa", "samsum", "lsht", \
             "passage_count", "passage_retrieval_en", "passage_retrieval_zh", "lcc", "repobench-p"]
 
+save_path = "./LongBench_datasets"
+
 for dataset in datasets:
     data = load_dataset('THUDM/LongBench', dataset, split='test')
+    data.save_to_disk(f"{save_path}/{dataset}")
